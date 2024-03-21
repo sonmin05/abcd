@@ -1,0 +1,51 @@
+파이썬에서는 날짜를 다루기 위해 datetime 모듈을 사용합니다. 이 모듈을 통해 날짜를 날짜 객체(date object)로 다룰 수 있습니다.
+
+```python
+import datetime
+
+x = datetime.datetime.now()
+print(x)
+```
+
+위의 예제에서는 datetime 모듈을 import하여 현재 날짜와 시간을 출력하고 있습니다. 실행 결과는 다음과 같습니다.
+
+```
+2024-03-21 15:18:17.063890
+```
+
+datetime 객체는 년, 월, 일, 시, 분, 초, 마이크로초(microsecond) 등의 정보를 포함하고 있습니다. datetime 모듈에는 이러한 날짜 객체에 대한 정보를 반환하는 많은 메소드들이 있습니다.
+
+아래는 몇 가지 예시입니다.
+
+```python
+import datetime
+
+x = datetime.datetime.now()
+
+print(x.year)
+print(x.strftime("%A"))
+```
+
+위의 예제에서는 현재 년도와 요일을 출력하고 있습니다.
+
+날짜 객체를 생성하기 위해서는 datetime() 클래스(constructor)를 사용합니다. datetime() 클래스를 사용하려면 년, 월, 일의 세 가지 매개변수가 필요합니다.
+
+```python
+import datetime
+
+x = datetime.datetime(2020, 5, 17)
+
+print(x)
+```
+
+strftime() 메소드는 날짜 객체를 문자열로 변환할 때 사용됩니다. 이 메소드는 하나의 매개변수인 format을 가지며 반환되는 문자열의 형식을 지정합니다.
+
+```python
+import datetime
+
+x = datetime.datetime(2018, 6, 1)
+
+print(x.strftime("%B"))
+```
+
+위의 예제에서는 월의 전체 이름을 출력하고 있습니다.
