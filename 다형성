@@ -1,0 +1,72 @@
+다형성(Polymorphism)은 하나의 이름(메서드 또는 함수)이 다양한 형태로 동작할 수 있는 개념입니다. 파이썬에서 다형성은 클래스 메서드에서 자주 사용됩니다. 이때 여러 클래스가 동일한 메서드 이름을 가질 수 있습니다.
+
+예를 들어, 자동차(Car), 보트(Boat), 비행기(Plane) 클래스가 있고, 모두 move()라는 메서드를 가진다고 가정해봅시다.
+
+```python
+class Car:
+  def __init__(self, brand, model):
+    self.brand = brand
+    self.model = model
+
+  def move(self):
+    print("Drive!")
+
+class Boat:
+  def __init__(self, brand, model):
+    self.brand = brand
+    self.model = model
+
+  def move(self):
+    print("Sail!")
+
+class Plane:
+  def __init__(self, brand, model):
+    self.brand = brand
+    self.model = model
+
+  def move(self):
+    print("Fly!")
+
+car1 = Car("Ford", "Mustang")       # Car 클래스 생성
+boat1 = Boat("Ibiza", "Touring 20") # Boat 클래스 생성
+plane1 = Plane("Boeing", "747")     # Plane 클래스 생성
+
+for x in (car1, boat1, plane1):
+  x.move()
+```
+
+위 코드에서 보듯이, 다형성을 이용하면 동일한 메서드를 모든 클래스에서 실행할 수 있습니다. 이렇게 하면 각 클래스에 대해 move() 메서드를 호출하는 별도의 코드를 작성할 필요가 없습니다.
+
+또한, 상속을 통해 클래스의 다형성을 구현할 수 있습니다. 아래 예시에서는 Vehicle이라는 부모 클래스를 만들고, Car, Boat, Plane을 Vehicle의 자식 클래스로 만들어 보겠습니다.
+
+```python
+class Vehicle:
+  def __init__(self, brand, model):
+    self.brand = brand
+    self.model = model
+
+  def move(self):
+    print("Move!")
+
+class Car(Vehicle):
+  pass
+
+class Boat(Vehicle):
+  def move(self):
+    print("Sail!")
+
+class Plane(Vehicle):
+  def move(self):
+    print("Fly!")
+
+car1 = Car("Ford", "Mustang")       # Car 객체 생성
+boat1 = Boat("Ibiza", "Touring 20") # Boat 객체 생성
+plane1 = Plane("Boeing", "747")     # Plane 객체 생성
+
+for x in (car1, boat1, plane1):
+  print(x.brand)
+  print(x.model)
+  x.move()
+```
+
+이 예제에서는 Vehicle 클래스의 속성과 메서드를 Car, Boat, Plane 클래스가 상속받았습니다. Boat 및 Plane 클래스에서 move() 메서드를 재정의했습니다. 이러한 다형성의 개념을 통해 for 루프에서 동일한 move() 메서드를 호출하여 각 클래스의 객체에 대해 동작을 수행할 수 있습니다.
