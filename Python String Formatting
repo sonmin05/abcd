@@ -1,0 +1,49 @@
+`format()` 메서드를 사용하면 문자열의 선택된 부분을 서식화할 수 있습니다. 때로는 텍스트의 일부를 제어할 수 없을 수도 있습니다. 이럴 때는 데이터베이스나 사용자 입력 등 외부에서 값을 받아오게 됩니다.
+
+이러한 값을 제어하려면 텍스트에 중괄호({})를 플레이스홀더로 추가하고, `format()` 메서드를 사용하여 값을 전달합니다.
+
+**예시:**
+```python
+price = 49
+txt = "가격은 {} 달러입니다."
+print(txt.format(price))
+```
+
+여기서 중괄호 내에 값을 전달할 수 있는데, 이때 추가 매개변수를 사용하여 값을 변환하는 방법을 지정할 수 있습니다.
+
+**예시:**
+```python
+txt = "가격은 {:.2f} 달러입니다."
+```
+
+여러 값을 사용하려면 `format()` 메서드에 추가 값을 전달하면 됩니다. 
+
+**예시:**
+```python
+quantity = 3
+itemno = 567
+price = 49
+myorder = "제품 번호 {}의 {}개를 주문합니다. 가격은 {:.2f} 달러입니다."
+print(myorder.format(itemno, quantity, price))
+```
+
+또한 인덱스 번호(중괄호 안에 숫자)를 사용하여 값을 올바른 위치에 배치할 수 있습니다.
+
+**예시:**
+```python
+quantity = 3
+itemno = 567
+price = 49
+myorder = "제품 번호 {1}의 {0}개를 주문합니다. 가격은 {2:.2f} 달러입니다."
+print(myorder.format(quantity, itemno, price))
+```
+
+이 밖에도 중괄호 내에 이름을 지정하여 사용할 수 있습니다.
+
+**예시:**
+```python
+myorder = "{carname} 차량을 소유하고 있습니다. 모델은 {model}입니다."
+print(myorder.format(carname = "Ford", model = "Mustang"))
+```
+
+`format()` 메서드를 사용하면 문자열의 서식을 지정하여 보다 동적인 문자열을 생성할 수 있습니다.
