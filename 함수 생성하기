@@ -1,0 +1,128 @@
+함수는 호출될 때에만 실행되는 코드 블록입니다. 함수에는 데이터를 전달할 수 있는 매개변수가 있으며, 함수는 결과값을 반환할 수 있습니다.
+
+함수 생성하기
+
+파이썬에서는 def 키워드를 사용하여 함수를 정의합니다.
+
+python
+Copy code
+def my_function():
+  print("함수에서 안녕하세요")
+함수 호출하기
+
+함수를 호출하려면 함수 이름 뒤에 괄호를 붙입니다.
+
+python
+Copy code
+def my_function():
+  print("함수에서 안녕하세요")
+
+my_function()
+인수
+
+함수로 정보를 전달할 수 있습니다. 이러한 정보를 인수라고 합니다.
+
+인수는 함수 이름 뒤의 괄호 안에 지정됩니다. 필요에 따라 원하는 만큼의 인수를 추가할 수 있으며, 각 인수는 쉼표로 구분됩니다.
+
+python
+Copy code
+def my_function(fname):
+  print(fname + " Refsnes")
+
+my_function("Emil")
+my_function("Tobias")
+my_function("Linus")
+인수의 수
+
+기본적으로 함수는 올바른 수의 인수로 호출되어야 합니다. 즉, 함수가 2개의 인수를 기대한다면 2개의 인수로 함수를 호출해야 합니다. 더 많거나 적은 인수를 사용하면 오류가 발생합니다.
+
+python
+Copy code
+def my_function(fname, lname):
+  print(fname + " " + lname)
+
+my_function("Emil", "Refsnes")
+인수가 1개 또는 3개인 경우에도 함수를 호출하면 오류가 발생합니다.
+
+임의 인수, *args
+
+함수에 전달되는 인수의 수를 알 수 없는 경우, 함수 정의에서 매개변수 이름 앞에 *를 추가합니다.
+
+python
+Copy code
+def my_function(*kids):
+  print("제일 어린 아이는 " + kids[2])
+
+my_function("Emil", "Tobias", "Linus")
+키워드 인수
+
+key = value 구문을 사용하여 인수를 전달할 수도 있습니다. 이렇게 하면 인수의 순서가 중요하지 않습니다.
+
+python
+Copy code
+def my_function(child3, child2, child1):
+  print("제일 어린 아이는 " + child3)
+
+my_function(child1 = "Emil", child2 = "Tobias", child3 = "Linus")
+임의 키워드 인수, **kwargs
+
+키워드 인수의 수를 알 수 없는 경우, 함수 정의에서 매개변수 이름 앞에 두 개의 애스터리스크(**)를 추가합니다.
+
+python
+Copy code
+def my_function(**kid):
+  print("그의 성은 " + kid["lname"])
+
+my_function(fname = "Tobias", lname = "Refsnes")
+기본 매개변수 값
+
+기본 매개변수 값을 사용하는 방법을 보여주는 예입니다. 인수 없이 함수를 호출하면 기본값을 사용합니다.
+
+python
+Copy code
+def my_function(country = "Norway"):
+  print("저는 " + country + "에서 왔습니다.")
+
+my_function("Sweden")
+my_function("India")
+my_function()
+my_function("Brazil")
+리스트를 인수로 전달하기
+
+함수에는 문자열, 숫자, 리스트, 딕셔너리 등과 같은 모든 데이터 유형의 인수를 전송할 수 있으며, 함수 내에서 동일한 데이터 유형으로 처리됩니다.
+
+python
+Copy code
+def my_function(food):
+  for x in food:
+    print(x)
+
+fruits = ["사과", "바나나", "체리"]
+
+my_function(fruits)
+반환 값
+
+함수가 값을 반환하도록 하려면 return 문을 사용합니다.
+
+python
+Copy code
+def my_function(x):
+  return 5 * x
+
+print(my_function(3))
+print(my_function(5))
+print(my_function(9))
+pass 문
+
+함수 정의는 비어 있을 수 없지만, 내용이 없는 함수 정의가 있는 경우 pass 문을 추가하여 에러를 피할 수 있습니다.
+
+python
+Copy code
+def myfunction():
+  pass
+이어서 다루는 내용은 위치 인수, 키워드 인수, 위치 전용 인수, 키워드 전용 인수, 위치 인수와 키워드 인수 결합 등의 내용을 다룹니다. 그리고 함수 재귀와 같은 추가 주제도 다룹니다.
+
+
+
+
+
