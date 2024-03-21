@@ -1,0 +1,68 @@
+예외 처리(Exception Handling)는 프로그램 실행 중에 오류가 발생할 때 그것을 처리하는 방법입니다. 파이썬에서는 이를 `try`, `except`, `else`, `finally` 키워드를 사용하여 처리합니다.
+
+**try-except 구문**
+오류가 발생할 수 있는 코드를 `try` 블록 안에 작성하고, 예외가 발생하면 `except` 블록이 실행됩니다. 
+
+```python
+try:
+    print(x)  # x가 정의되지 않았기 때문에 예외 발생
+except:
+    print("예외가 발생했습니다")
+```
+
+**여러 종류의 예외 처리하기**
+다양한 종류의 예외에 대해 각각 다른 처리를 하고 싶다면 여러 개의 `except` 블록을 사용할 수 있습니다.
+
+```python
+try:
+    print(x)
+except NameError:
+    print("변수 x가 정의되지 않았습니다")
+except:
+    print("다른 오류가 발생했습니다")
+```
+
+**else 구문**
+`else` 구문은 `try` 블록이 예외를 발생시키지 않을 때 실행됩니다.
+
+```python
+try:
+    print("Hello")
+except:
+    print("오류 발생")
+else:
+    print("오류가 없습니다")
+```
+
+**finally 구문**
+`finally` 구문은 예외 발생 여부와 상관없이 항상 실행됩니다.
+
+```python
+try:
+    print(x)
+except:
+    print("오류 발생")
+finally:
+    print("'try except'가 완료되었습니다")
+```
+
+**raise 키워드**
+개발자가 특정 조건에 따라 예외를 발생시킬 수 있습니다. 이때 `raise` 키워드를 사용합니다.
+
+```python
+x = -1
+
+if x < 0:
+    raise Exception("음수는 허용되지 않습니다")
+```
+
+특정 조건이 충족되지 않을 때 특정 예외를 발생시키고 싶은 경우에도 사용할 수 있습니다.
+
+```python
+x = "hello"
+
+if not type(x) is int:
+    raise TypeError("정수만 허용됩니다")
+```
+
+이러한 예외 처리 기법을 통해 프로그램을 보다 안정적으로 구현할 수 있습니다.
