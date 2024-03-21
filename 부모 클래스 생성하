@@ -1,0 +1,73 @@
+상속은 다른 클래스로부터 모든 메서드와 속성을 상속받을 수 있게 해줍니다.
+
+부모 클래스는 상속되는 클래스이며, 기본 클래스라고도 합니다.
+
+자식 클래스는 다른 클래스로부터 상속받는 클래스이며, 파생 클래스라고도 합니다.
+
+**부모 클래스 생성하기**
+어떤 클래스든 부모 클래스가 될 수 있으므로, 클래스를 생성하는 구문은 다른 클래스를 생성하는 것과 같습니다.
+
+```python
+class Person:
+  def __init__(self, fname, lname):
+    self.firstname = fname
+    self.lastname = lname
+
+  def printname(self):
+    print(self.firstname, self.lastname)
+
+# Person 클래스를 사용하여 객체를 생성하고, 그 후 printname 메서드를 실행합니다.
+
+x = Person("John", "Doe")
+x.printname()
+```
+
+**자식 클래스 생성하기**
+다른 클래스의 기능을 상속받는 클래스를 생성하려면 자식 클래스를 만들 때 부모 클래스를 매개변수로 전달합니다.
+
+```python
+class Student(Person):
+  pass
+```
+
+**`__init__()` 함수 추가하기**
+부모 클래스에서 속성과 메서드를 상속받은 자식 클래스에 `__init__()` 함수를 추가할 수 있습니다. 이 함수는 부모 클래스의 `__init__()` 함수를 오버라이드합니다.
+
+```python
+class Student(Person):
+  def __init__(self, fname, lname):
+    Person.__init__(self, fname, lname)
+```
+
+또는 `super()` 함수를 사용하여 부모 클래스의 메서드와 속성을 자동으로 상속받을 수 있습니다.
+
+```python
+class Student(Person):
+  def __init__(self, fname, lname):
+    super().__init__(fname, lname)
+```
+
+**속성 추가하기**
+자식 클래스에 새로운 속성을 추가할 수 있습니다.
+
+```python
+class Student(Person):
+  def __init__(self, fname, lname):
+    super().__init__(fname, lname)
+    self.graduationyear = 2019
+```
+
+**메서드 추가하기**
+자식 클래스에 새로운 메서드를 추가할 수 있습니다.
+
+```python
+class Student(Person):
+  def __init__(self, fname, lname, year):
+    super().__init__(fname, lname)
+    self.graduationyear = year
+
+  def welcome(self):
+    print("Welcome", self.firstname, self.lastname, "to the class of", self.graduationyear)
+```
+
+이렇게 파이썬에서 상속을 사용하여 부모 클래스의 기능을 자식 클래스에 상속하고 확장하는 방법을 설명했습니다.
